@@ -15,16 +15,14 @@ source /etc/default/locale
 #install mozc
 sudo apt install fcitx-mozc -y
 
-#change permission
-sudo chmod a+w /etc/systemd/user/cros-garcon.service.d/cros-garcon-override.conf
-
 #set environment variable
-sudo echo 'Environment="GTK_IM_MODULE=fcitx"' > /etc/systemd/user/cros-garcon.service.d/cros-garcon-override.conf
-sudo echo 'Environment="QT_IM_MODULE=fcitx"' > /etc/systemd/user/cros-garcon.service.d/cros-garcon-override.conf
-sudo echo 'Environment="XMODIFIERS=@im=fcitx"' > /etc/systemd/user/cros-garcon.service.d/cros-garcon-override.conf
+sudo chmod a+w /etc/systemd/user/cros-garcon.service.d/cros-garcon-override.conf
+sudo echo 'Environment="GTK_IM_MODULE=fcitx"' >> /etc/systemd/user/cros-garcon.service.d/cros-garcon-override.conf
+sudo echo 'Environment="QT_IM_MODULE=fcitx"' >> /etc/systemd/user/cros-garcon.service.d/cros-garcon-override.conf
+sudo echo 'Environment="XMODIFIERS=@im=fcitx"' >> /etc/systemd/user/cros-garcon.service.d/cros-garcon-override.conf
 
 #autorun
-sudo echo '/usr/bin/fcitx-autostart' > ~/.sommelierrc
+sudo echo '/usr/bin/fcitx-autostart' >> ~/.sommelierrc
 
 sudo reboot
 
